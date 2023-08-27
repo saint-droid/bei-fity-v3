@@ -1,0 +1,18 @@
+[{
+    "title": "Vitron tv ",
+    "price": 27000,
+    "desc":"This is  a 42 inch vitron tv with 1080 resolution",
+    "ratings":4.1,
+    "images":[
+        {
+            "public_id":"products/jevtshhdgbfgudbfhi2j3bfhfb",
+            "url":"https://media.istockphoto.com/photos/woman-relaxing-at-home-in-evening-and-watching-tv-picture-id1317927924?b=1&k=20&m=1317927924&s=170667a&w=0&h=09B4U0h93nTHY9liyj_xwAwQAKkYvkC9y3ZgEM1uba4="
+
+        }
+    ],
+    "category":"Electronics",
+    "seller":"James",
+    "stock":100,
+    "nu mOfReviews":6,
+    "reviews":[]
+}]
