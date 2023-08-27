@@ -5,11 +5,11 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node":"14.x"
+    "node": "14.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "saint",
   "license": "ISC",
@@ -35,7 +35,6 @@
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.15",
     "python-shell": "^5.0.0",
-    "socket.io": "^4.6.1",
     "stripe": "^9.0.0",
     "twilio": "^3.77.2",
     "uuid": "^8.3.2",

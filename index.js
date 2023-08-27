@@ -26,12 +26,12 @@ import inboxRoute from "./routes/Inbox.js";
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import Inbox from './models/Inbox.js';
-import { WebSocketServer } from 'ws';
+// import { WebSocketServer } from 'ws';
 import ChatRoute from './routes/Chat.js';
 import SingleChatRoute from './routes/singleChat.js';
 // import { Expo, ExpoPushMessage, ExpoPushTicket } from 'expo-server-sdk';
 
-const wss = new WebSocketServer({ port: process.env.PORT_SOCKET || 8080 });
+// const wss = new WebSocketServer({ port: process.env.PORT_SOCKET || 8080 });
 // const expo = new Expo();
 
 dotenv.config();
@@ -113,44 +113,44 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/app.html');
 });
 
-io.on("connection", (socket, next) => {
-  // console.log("connected to socket");
-  socket.on('setup', (users) => {
-    socket.join(users._id);
-    // console.log(users._id)
-    socket.emit('connected')
+// io.on("connection", (socket, next) => {
+//   // console.log("connected to socket");
+//   socket.on('setup', (users) => {
+//     socket.join(users._id);
+//     // console.log(users._id)
+//     socket.emit('connected')
     
-  })
-  socket.on('join chat', (room) => {
-    socket.join(room);
-    console.log("user joined room", room)
-    socket.emit('joined chat on')
+//   })
+//   socket.on('join chat', (room) => {
+//     socket.join(room);
+//     console.log("user joined room", room)
+//     socket.emit('joined chat on')
     
-  })
-  socket.on('new message', (newMessageReceived) => {
-    var chat = newMessageReceived[0].chats[0]
-    console.log("this is the newMessageReceived from top", newMessageReceived)
+//   })
+//   socket.on('new message', (newMessageReceived) => {
+//     var chat = newMessageReceived[0].chats[0]
+//     console.log("this is the newMessageReceived from top", newMessageReceived)
 
-    if(!chat.chat.users){ return console.log("chat users not defined")}
-    else{
-      chat.chat.users.forEach(user =>{
-        // socket.in(user._id).emit('message received', newMessageReceived)
+//     if(!chat.chat.users){ return console.log("chat users not defined")}
+//     else{
+//       chat.chat.users.forEach(user =>{
+//         // socket.in(user._id).emit('message received', newMessageReceived)
         
-        // socket.in(user._id).emit('message received', newMessageReceived)
+//         // socket.in(user._id).emit('message received', newMessageReceived)
 
-          if (user._id  == chat.sender._id) {
-            console.log("yes it is")
-            // socket.in(user._id).emit('message received', newMessageReceived)
+//           if (user._id  == chat.sender._id) {
+//             console.log("yes it is")
+//             // socket.in(user._id).emit('message received', newMessageReceived)
 
-          } else{
-            socket.in(user._id).emit('message received', newMessageReceived)
-          }
-      })
-    }
-    socket.emit('connected')
+//           } else{
+//             socket.in(user._id).emit('message received', newMessageReceived)
+//           }
+//       })
+//     }
+//     socket.emit('connected')
     
-  })
-});
+//   })
+// });
 
 
 server.listen(process.env.PORT || 8000, () =>
